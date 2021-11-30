@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import {ButtonModule} from 'primeng/button';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +7,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'pipesApp';
+ valueString: string = 'rUbEn';
+ valueNumber: number = 1000;
+ valueObject: object = {
+   name: 'Rubén'
+ };
+
+ mostrarNombre() {
+   console.log(this.valueString);
+ }
 }
