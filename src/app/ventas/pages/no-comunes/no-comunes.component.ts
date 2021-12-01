@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { interval } from 'rxjs';
 
 @Component({
   selector: 'app-no-comunes',
@@ -32,12 +33,46 @@ clientesMapa = {
   '=2' : 'tenemos dos clientes esperando.',
   'other' : 'tenemos # clientes esperando'
 };
-
+//Buttons
+cantidadArray:number = 0;
 anadirCliente(){
-  this.clientes.push('1');
+  this.cantidadArray = this.clientes.length + 1
+  this.clientes.push(this.cantidadArray.toString());
 }
 borrarCliente(){
 this.clientes.shift();
 }
+
+//KeyValue Pipe
+persona = {
+nombre: 'Rubén',
+edad: 30,
+direccion: 'Wall St, NY.'
+}
+
+//JsonPipe
+heroes = [
+  {
+  nombre: 'Superman',
+  vuela: true,
+  },
+  {
+  nombre: 'Aquaman',
+  vuela: false,
+  },
+  {
+  nombre: 'Robin',
+  vuela: false,
+  }
+]
+
+//Async Pipe
+miObservable = interval(2000); // 0, 1, 2, 3, 4, 5, 6, 7...
+
+valorPromesa = new Promise((resolve, reject) => {
+  setTimeout(()=>{
+    resolve('Tenemos data de promesa');
+  },3500);
+});
 
 }
