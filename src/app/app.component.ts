@@ -1,19 +1,25 @@
 import { Component } from '@angular/core';
-import {ButtonModule} from 'primeng/button';
+import { PrimeNGConfig } from 'primeng/api';
 
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  styleUrls: ['./app.component.css'],
 })
 export class AppComponent {
- valueString: string = 'rUbEn';
- valueNumber: number = 1000;
- valueObject: object = {
-   name: 'Rubén'
- };
+  valueString: string = 'rUbEn';
+  valueNumber: number = 1000;
+  valueObject: object = {
+    name: 'Rubén',
+  };
 
- mostrarNombre() {
-   console.log(this.valueString);
- }
+  constructor(private primengConfig: PrimeNGConfig) {}
+
+ngOnInit(){
+  this.primengConfig.ripple = true;
+}
+
+  mostrarNombre() {
+    console.log(this.valueString);
+  }
 }
